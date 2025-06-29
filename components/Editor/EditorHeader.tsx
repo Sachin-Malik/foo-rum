@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 export const EditorHeader = () => {
   const [selectedButton, setSelectedButton] = useState<EditorButtonType>(
-    EditorButtonType.UNDERLINE
+    EditorButtonType.UNDERLINE,
   );
 
   const handleToolBarButton = (type: EditorButtonType) => {
@@ -33,6 +33,7 @@ export const EditorHeader = () => {
         <div className="flex flex-row gap-2 items-center h-full">
           {TextFormatter.map((formatter) => (
             <EditorToolbarButton
+              key={formatter.type}
               formatter={formatter}
               onClick={handleToolBarButton}
               isSelected={formatter.type === selectedButton}
@@ -43,6 +44,7 @@ export const EditorHeader = () => {
         <div className="flex flex-row gap-2 items-center">
           {ListFormatter.map((formatter) => (
             <EditorToolbarButton
+              key={formatter.type}
               formatter={formatter}
               onClick={handleToolBarButton}
               isSelected={formatter.type === selectedButton}
@@ -53,6 +55,7 @@ export const EditorHeader = () => {
         <div className="flex flex-row gap-2 items-center">
           {MiscFormatter.map((formatter) => (
             <EditorToolbarButton
+              key={formatter.type}
               formatter={formatter}
               onClick={handleToolBarButton}
               isSelected={formatter.type === selectedButton}
