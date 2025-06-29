@@ -9,6 +9,8 @@ import Separator from "./Seprator";
 import { useState } from "react";
 import { EditorButtonType } from "./Editor.types";
 import { toast } from "react-toastify";
+import { useWindowDimension } from "@/hooks/useWindowDimension";
+import Show from "../Show/Show";
 
 export const EditorHeader = () => {
   const [selectedButton, setSelectedButton] = useState<EditorButtonType>(
@@ -30,41 +32,43 @@ export const EditorHeader = () => {
           <div className="text-bodyregular">Paragraph</div>
           <ChevronDown className="w-4 h-4" />
         </button>
-        <div className="flex flex-row gap-2 items-center h-full">
-          {TextFormatter.map((formatter) => (
-            <EditorToolbarButton
-              key={formatter.type}
-              formatter={formatter}
-              onClick={handleToolBarButton}
-              isSelected={formatter.type === selectedButton}
-            />
-          ))}
-        </div>
-        <Separator />
-        <div className="flex flex-row gap-2 items-center">
-          {ListFormatter.map((formatter) => (
-            <EditorToolbarButton
-              key={formatter.type}
-              formatter={formatter}
-              onClick={handleToolBarButton}
-              isSelected={formatter.type === selectedButton}
-            />
-          ))}
-        </div>
-        <Separator />
-        <div className="flex flex-row gap-2 items-center">
-          {MiscFormatter.map((formatter) => (
-            <EditorToolbarButton
-              key={formatter.type}
-              formatter={formatter}
-              onClick={handleToolBarButton}
-              isSelected={formatter.type === selectedButton}
-            />
-          ))}
-        </div>
+        <Show when={useWindowDimension().width > 600}>
+          <div className="flex flex-row gap-2 items-center h-full">
+            {TextFormatter.map((formatter) => (
+              <EditorToolbarButton
+                key={formatter.type}
+                formatter={formatter}
+                onClick={handleToolBarButton}
+                isSelected={formatter.type === selectedButton}
+              />
+            ))}
+          </div>
+          <Separator />
+          <div className="flex flex-row gap-2 items-center">
+            {ListFormatter.map((formatter) => (
+              <EditorToolbarButton
+                key={formatter.type}
+                formatter={formatter}
+                onClick={handleToolBarButton}
+                isSelected={formatter.type === selectedButton}
+              />
+            ))}
+          </div>
+          <Separator />
+          <div className="flex flex-row gap-2 items-center">
+            {MiscFormatter.map((formatter) => (
+              <EditorToolbarButton
+                key={formatter.type}
+                formatter={formatter}
+                onClick={handleToolBarButton}
+                isSelected={formatter.type === selectedButton}
+              />
+            ))}
+          </div>
+        </Show>
       </div>
       <button
-        className="p-2 rounded-lg transition-all bg-red-80/20 hover:bg-red-80/40"
+        className="p-2 rounded-lg transition-colors bg-red-80/20 hover:bg-red-80/40"
         onClick={handleDiscardPost}
       >
         <Trash2 className="w-4 h-4 text-red-80" />

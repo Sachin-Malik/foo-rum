@@ -1,4 +1,5 @@
 "use client";
+import useLocalStorage from "@/hooks/useLocalStorage";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { AuthContext } from "@/context/AuthContext";
@@ -31,7 +32,7 @@ const TopNavbar = () => {
   };
 
   return (
-    <div className="w-full bg-[white] p-2 flex flex-row justify-between px-8 py-4">
+    <div className="fixed top-0 z-50 left-0 w-full bg-[white] p-2 flex flex-row justify-between px-[40px] py-4">
       <div className="flex flex-row gap-2 items-center">
         <div className="w-8 h-5 rounded-full border-[4px] border-[black]"></div>
         <span className="font-inter text-heading3 font-bold">foo-rum</span>

@@ -43,7 +43,7 @@ export const Editor: FC<EditorProps> = ({ onSubmit }) => {
     setEditorState({ ...editorState, text: value, emoji });
   };
   return (
-    <div className="rounded-xl bg-gray-100 w-[600px] max-w-[100%] p-2 mb-6">
+    <div className="rounded-xl bg-gray-100 w-[400px] md:w-[600px] max-w-[100%] p-2 mb-6 mt-6">
       <div className="bg-[white] rounded-xl shadow-md">
         <EditorHeader />
         <div className="flex flex-row gap-2 p-4">

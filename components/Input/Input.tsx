@@ -17,7 +17,7 @@ export const Input: React.FC<InputProps> = ({ label, ...rest }) => {
       <input
         id={label}
         type="text"
-        className="border transition-all duration-300 h-[44px] rounded-lg w-full border-none outline-none focus:ring-2 focus:ring-primary-70 bg-gray-400 placeholder:text-[black]/60 text-[14px] p-2 placeholder:text-[12px]"
+        className="border transition-colors duration-300 h-[44px] rounded-lg w-full border-none outline-none focus:ring-2 focus:ring-primary-70 bg-gray-400 placeholder:text-[black]/60 text-[14px] p-2 placeholder:text-[12px]"
         {...rest}
       />
     </div>

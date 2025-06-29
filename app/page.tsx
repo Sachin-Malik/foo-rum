@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <AuthContextProvider>
       <TopNavbar />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <main className="flex min-h-screen flex-col items-center justify-between p-[24px] md:p-24 overflow-scroll align-center">
         <Editor onSubmit={handlePostSubmit} />
         <div className="flex flex-col gap-4">
           {posts.map((post, index) => (

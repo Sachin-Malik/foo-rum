@@ -11,9 +11,7 @@ export type CardProps = {
 export const Card: FC<CardProps> = ({ card, index }) => {
   return (
     <div
-      className={`p-2 rounded-xl bg-gray-100 w-[600px] max-w-[100%] animate-fade-in-up delay-[${
-        index * 100
-      }ms]`}
+      className={`p-2 rounded-xl bg-gray-100 w-[400px] md:w-[600px] max-w-[100%] animate-fade-in-up`}
     >
       <div className={`bg-[white] p-4 rounded-xl shadow-md ]`}>
         <CardHeader
