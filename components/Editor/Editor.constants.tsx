@@ -1,4 +1,4 @@
-import { EditorButtonType } from "./Editor.types";
+import { EditorButtonType, Post } from "./Editor.types";
 import {
   Bold,
   Italic,
@@ -27,3 +27,11 @@ export const MiscFormatter = [
   { type: EditorButtonType.QUOTE, icon: <Quote className="w-4 h-4" /> },
   { type: EditorButtonType.CODE, icon: <Code className="w-4 h-4" /> },
 ];
+
+export const postDefaultState: Post = {
+  authorName: "",
+  createdAt: "",
+  profilePicUrl: "",
+  text: "",
+  emoji: "",
+};

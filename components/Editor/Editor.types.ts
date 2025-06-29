@@ -7,3 +7,11 @@ export enum EditorButtonType {
   QUOTE = "quote",
   CODE = "code",
 }
+
+export type Post = {
+  text: string;
+  emoji: string;
+  authorName: string;
+  createdAt: string;
+  profilePicUrl: string;
+};

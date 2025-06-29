@@ -39,6 +39,7 @@ export const SignupDialog = () => {
         newSearchParams.delete("dialog");
         setUser(formState.email);
         router.push(`?${newSearchParams.toString()}`);
+        toast.success("Login successful");
       } else {
         toast.error("Invalid credentials");
         setFormState(defaultFormState);

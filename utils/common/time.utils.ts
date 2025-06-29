@@ -12,5 +12,6 @@ export function timeAgo(date: Date): string {
   if (days > 1) return format(date, "dd MMMM, yyyy");
   if (hours > 0) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
   if (minutes > 0) return `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
+  if (seconds == 0) return "just now";
   return `${seconds} second${seconds === 1 ? "" : "s"} ago`;
 }

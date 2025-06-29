@@ -1,9 +1,14 @@
 import { PlusIcon, Mic, Send, Video } from "lucide-react";
 import { FC } from "react";
+import { toast } from "react-toastify";
 
 export type EditorFooterProps = {
   onClick: () => void;
   disabled: boolean;
+};
+
+export const handleAttachmentClick = () => {
+  toast.error("Functionality not implemented");
 };
 
 export const EditorFooter: FC<EditorFooterProps> = ({ onClick, disabled }) => {
@@ -12,7 +17,7 @@ export const EditorFooter: FC<EditorFooterProps> = ({ onClick, disabled }) => {
       <div className="flex flex-row gap-4 items-center">
         <button
           className="flex flex-row gap-2 items-center p-1 rounded-md bg-[lightgrey]/40 hover:scale-110 transition-all hover:bg-[lightgrey]/60"
-          onClick={onClick}
+          onClick={handleAttachmentClick}
         >
           <PlusIcon className="h-5 w-5" />
         </button>
