@@ -11,17 +11,27 @@ import { EditorButtonType } from "./Editor.types";
 import { toast } from "react-toastify";
 import { useWindowDimension } from "@/hooks/useWindowDimension";
 import Show from "../Show/Show";
+import { useAuthDialog } from "@/hooks/useAuthDialog";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 export const EditorHeader = () => {
   const [selectedButton, setSelectedButton] = useState<EditorButtonType>(
     EditorButtonType.UNDERLINE,
   );
 
+  const { user } = useContext(AuthContext);
+  const { openAuthDialog } = useAuthDialog();
+
   const handleToolBarButton = (type: EditorButtonType) => {
     setSelectedButton(type);
   };
 
   const handleDiscardPost = () => {
+    if (!user) {
+      openAuthDialog();
+      return;
+    }
     toast.error("Functionality not implemented");
   };
 

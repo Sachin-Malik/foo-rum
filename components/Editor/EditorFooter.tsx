@@ -1,17 +1,27 @@
 import { PlusIcon, Mic, Send, Video } from "lucide-react";
 import { FC } from "react";
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
+import { useAuthDialog } from "@/hooks/useAuthDialog";
 
 export type EditorFooterProps = {
   onClick: () => void;
   disabled: boolean;
 };
 
-export const handleAttachmentClick = () => {
-  toast.error("Functionality not implemented");
-};
-
 export const EditorFooter: FC<EditorFooterProps> = ({ onClick, disabled }) => {
+  const { user } = useContext(AuthContext);
+  const { openAuthDialog } = useAuthDialog();
+
+  const handleAttachmentClick = () => {
+    if (!user) {
+      openAuthDialog();
+      return;
+    }
+    toast.error("Functionality not implemented");
+  };
+
   return (
     <div className="flex flex-row justify-between border-t-[1px] border-[lightgrey]/60 py-2 px-4">
       <div className="flex flex-row gap-4 items-center">

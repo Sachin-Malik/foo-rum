@@ -13,6 +13,7 @@ import { useContext } from "react";
 import Show from "../Show/Show";
 import { db } from "@/app/mock/db/dexie";
 import { makePost, updateEmoji } from "./helper";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export type EditorProps = {
   onSubmit: () => void;
@@ -21,12 +22,20 @@ export type EditorProps = {
 export const Editor: FC<EditorProps> = ({ onSubmit }) => {
   const { user } = useContext(AuthContext);
   const [editorState, setEditorState] = useState<Post>(postDefaultState);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const openAuthDialog = () => {
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    newSearchParams.set("dialog", "login");
+    router.push(`?${newSearchParams.toString()}`);
+  };
 
   const isSendDisabled = _size(editorState.text) === 0;
 
   const handleSubmitPost = async () => {
     if (!user) {
-      toast.error("Please login to post");
+      openAuthDialog();
       return;
     }
     const post = makePost(user, editorState.emoji, editorState.text);
