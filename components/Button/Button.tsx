@@ -1,9 +1,9 @@
+import React from "react";
 import { FC } from "react";
 
-export type ButtonProps = {
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   className?: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button: FC<ButtonProps> = ({ children, onClick, className }) => {

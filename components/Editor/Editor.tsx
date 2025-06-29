@@ -5,8 +5,7 @@ import { EditorFooter } from "./EditorFooter";
 import { EditorHeader } from "./EditorHeader";
 import { toast } from "react-toastify";
 import _size from "lodash/size";
-import { LoginDialog } from "../Dialogs/Login";
-import { SignupDialog } from "../Dialogs/Signup";
+import { SignupDialog } from "../Dialogs/AuthDialog";
 
 export const Editor = () => {
   const [text, setText] = useState("");
@@ -28,14 +27,13 @@ export const Editor = () => {
           <Smile className="w-5 h-5 text-gray-200" />
           <textarea
             placeholder="What's on your mind?"
-            className="w-full h-[100px] border-none outline-none resize-none font-sans text-[14px]"
+            className="w-full h-[100px] border-none outline-none resize-none font-sans placeholder:text-[gray] font-inter placeholder:text-[14px]"
             value={text}
             onChange={handleTextUpdate}
           ></textarea>
         </div>
         <EditorFooter onClick={handleSubmitPost} disabled={isSendDisabled} />
       </div>
-      <LoginDialog />
       <SignupDialog />
     </div>
   );
